@@ -1,10 +1,22 @@
 package workshop.account.entity;
 
-public class Account {
+public class Account extends Object {
 	private String custId;
 	private String acctId;
 	private int balance;
 	
+	//Default Constructor (기본 생성자) < 아무런 생성자 정의가 없으면 컴파일러가 자동으로 생성 
+	public Account() {
+		System.out.println("Default Construcor Called..");
+	}
+	
+	//Constructor Overloading(생성자 중복정의) 
+	public Account(String custId, String acctId, int balance) {
+		this.custId = custId;
+		this.acctId = acctId;
+		this.balance = balance;
+	}
+
 	//setter
 	public void setCustId(String custId){
 		this.custId = custId;
@@ -36,7 +48,14 @@ public class Account {
 	public void withdraw(int amount) {
 		if(amount > balance) {
 			System.out.println("잔액부족");
-	}
+		}
 		this.balance -= amount;
-}
+	}
+	//부모 클래스가 가진 Object의 toString() 메서드를 재정의(Overriding)
+	//Method Signature public String toString()
+	@Override
+	public String toString() {
+		return "Account [custId=" + custId + ", acctId=" + acctId + ", balance=" + balance + "]";
+	}
+	
 }
