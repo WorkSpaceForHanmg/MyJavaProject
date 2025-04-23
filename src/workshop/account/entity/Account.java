@@ -12,9 +12,11 @@ public class Account {
 	public void setAcctId(String acctId) {
 		this.acctId = acctId;
 	}
-	public void setBalance(int balance) {
-		this.balance = balance;
-	}
+//	public void setBalance(int balance) {
+//		this.balance = balance;
+//	}
+	
+	//getter
 	public String getCustId() {
 		return custId;
 	}
@@ -25,4 +27,14 @@ public class Account {
 		return balance;
 	}
 	
+	//입금
+	public void deposit(int amount) {
+		this.balance += amount;
+	}
+	//출금
+	public void withdraw(int amount) {
+		if(amount > balance) {
+			System.out.println("잔액부족");
+	}
+		this.balance -= amount;
 }
