@@ -16,7 +16,9 @@ public class ManageBook {
 		pubs[3] = new Novel("남한산성","2007-04-14",383,11000,"김훈","대하소설");
 		pubs[4] = new ReferenceBook("실용주의프로그래머","2007-01-14",496,25000,"소프트웨어공학");
 		        
-		        
+		for (Publication publication : pubs) {
+			System.out.println(publication);
+		}        
 		
 		
 		//Magazine 객체생성
@@ -28,6 +30,23 @@ public class ManageBook {
 		//Novel 객체생성
 		Novel novel = new Novel();
 		Publication pub2 = new Novel();
+	}//main
+	
+	//다형적 아규먼트(Polymorphic Argument)
+	public void modifyPrice(Publication pub) {
+		double rate = 0.0;
+		if(pub instanceof Magazine) {
+			rate = 0.6; // 40%
+		}
+		if(pub instanceof Novel){
+			rate = 0.8; // 20%
+		}
+		if(pub instanceof ReferenceBook) {
+			rate = 0.9; //10%
+		}
+		
+		pub.setPrice((int)(pub.getPrice() * rate));
 	}
-
+	
+	
 }
